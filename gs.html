@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GS SANTOS</title>
+  <link rel="stylesheet" href="gs.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="logo">GS SANTOS</div>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Pesquisar produtos...">
+    <button>🔍</button>
+  </div>
+
+  <div class="header-actions">
+    <button onclick="toggleDarkMode()">🌙</button>
+    <div class="cart" onclick="toggleCart()">
+      🛒 (<span id="cart-count">0</span>)
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="filters">
+    Categoria:
+    <select id="categoryFilter">
+      <option value="all">Todas</option>
+      <option value="churrasqueira">Churrasqueiras</option>
+      <option value="agro">Agropecuária</option>
+      <option value="domestico">Linha Doméstica</option>
+    </select>
+
+    Preço máximo:
+    <input type="number" id="priceFilter" placeholder="R$">
+  </div>
+</nav>
+
+<main class="container">
+  <div class="products" id="product-list"></div>
+</main>
+
+<!-- CARRINHO -->
+<aside class="cart-modal" id="cart">
+  <button class="close-btn" onclick="toggleCart()">Fechar</button>
+  <h2>Seu Carrinho</h2>
+  <div id="cart-items"></div>
+  <h3>Total: R$ <span id="cart-total">0</span></h3>
+  <button class="checkout-btn" onclick="goToCheckout()">Finalizar Compra</button>
+</aside>
+
+<!-- CHECKOUT -->
+<section class="checkout hidden" id="checkout">
+  <h2>Finalizar Pedido</h2>
+  <p>Total da compra: R$ <span id="checkout-total"></span></p>
+  <button onclick="finishPurchase()">Confirmar Compra</button>
+</section>
+
+<script src="gs.js"></script>
+</body>
+</html>
